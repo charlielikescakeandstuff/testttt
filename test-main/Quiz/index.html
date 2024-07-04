@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Interactive Quiz</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="loader" class="loader"></div>
+  <div id="background" class="background"></div>
+<audio controls autoplay loop style="display: none;">
+  <source src="omori oststuff.mp3" type="audio/mpeg">
+</audio> 
+<div id="content" class="content">
+  <div id="quiz">
+    <h1 class="title">The only nerd quiz you'll need.</h1>
+    <div id="question"></div>
+    <div id="options"><audio controls style="display: none;">
+      <source src="omori-stab.mp3" type="audio/mpeg">
+    </audio>  </div>
+  </div>
+</div>
+
+  <script src="script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+<script>
+
+    setTimeout(function (){
+        hideLoader();
+        showContent();
+    }, 2000);
+
+    function hideLoader() {
+        const loader = document.getElementById("loader");
+        loader.style.display = "none";
+    }
+
+    function showContent() {
+        const content = document.getElementById("content");
+        content.style.display = "block";
+        anime({
+      targets: '.title',
+      translateX: 250,
+      opacity : [0 , 1] ,
+      duration : 1500 ,
+      easing: 'easeInOutExpo'
+  
+})
+      anime({
+    targets: "#question",
+    translateX: 170,
+    opacity:[0 , 1],
+    duration:1600,
+    easing: 'easeInOutExpo'
+
+})
+    anime({
+      targets:"#options",
+      opacity:[0,1],
+      duration: 7000
+    })
+
+    }
+;
+</script>
+
+</body>
+</html>
